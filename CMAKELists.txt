@@ -1,0 +1,31 @@
+
+cmake_minimum_required(VERSION 3.10)
+project(minishell C)
+
+set(CMAKE_C_COMPILER /usr/bin/gcc)
+set(CMAKE_CXX_COMPILER /usr/bin/g++ )
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g -std=c11 -DDEBUG")
+
+# 设置输出目录
+set(TARGET_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/build/bin")
+file(MAKE_DIRECTORY ${TARGET_OUTPUT_DIR})
+
+# 收集源文件
+file(GLOB SOURCE_FILES 
+    ${CMAKE_SOURCE_DIR}/src/*.c
+)
+
+# 创建可执行文件目标
+add_executable(minishell ${SOURCE_FILES}
+    src/exec.c)
+
+# 指定头文件搜索路径
+target_include_directories(minishell PRIVATE 
+    ${CMAKE_SOURCE_DIR}/inc
+)
+
+# 设置可执行文件输出目录
+set_target_properties(minishell PROPERTIES 
+    RUNTIME_OUTPUT_DIRECTORY ${TARGET_OUTPUT_DIR}
+)
