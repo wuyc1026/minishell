@@ -1,5 +1,4 @@
-# VS Code 配置
-.vscode/
+# VS Code 配置（保留 tasks.json / launch.json / c_cpp_properties.json 用于团队共享）
 build/
 # 开发工具目录
 .devkit/

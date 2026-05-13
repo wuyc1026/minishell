@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <fcntl.h>
 
-#define MAX_INPUT 32
+#define MAX_INPUT 1024
 #define MAX_ARGS 64
 
 void trim(char *str);
